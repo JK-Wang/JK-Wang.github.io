@@ -11,3 +11,4 @@ toc: false
 ---
 
 Post2 test
+![picture 1](../../static/images/d512b2d57761615fea74cb9575faeb4d6eb0432d739740f9f5e584620b98b0cc.png)  
