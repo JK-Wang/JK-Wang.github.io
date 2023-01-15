@@ -40,7 +40,7 @@ copyright = "© {year}"
   # twitterAuthor = "@<your handle>"
 
   # Set to true to display page title in table of contents in blog posts.
-  showPageTitleInTOC = false
+  showPageTitleInTOC = true
 
 # This disables Hugo's default syntax highlighting in favor
 # of prismjs. If you wish to use Hugo's default syntax highlighting
