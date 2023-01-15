@@ -1,5 +1,5 @@
 ---
 heading: "Hi, I'm JK"
-subheading: "A software engineer"
-handle: "hugo-theme-codex"
+subheading: "Welcome to my Blog!"
+handle: "Transwarp"
 ---
