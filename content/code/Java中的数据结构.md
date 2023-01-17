@@ -1,3 +1,15 @@
+---
+title: "Java 中的数据结构"
+date: 2023-01-18T01:21:25+08:00
+slug: ""
+description: ""
+keywords: []
+draft: false
+tags: []
+math: false
+toc: true
+---
+
 ## 高性能输入输出
 ```java
 BufferedReader in =new BufferedReader(new InputStreamReader(System.in));

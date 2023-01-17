@@ -18,7 +18,7 @@ copyright = "© {year}"
 [params]
   # Follow the Hugo date/time format reference here:
   # https://gohugo.io/functions/format/#gos-layout-string
-  dateFormat = "2006-01-02"
+  dateFormat = "2006-01-02 03:04"
 
   # Links to your social accounts, comment/uncomment as needed. Icons will be displayed for those specified.
   github = "https://github.com/JK-Wang"
@@ -70,6 +70,6 @@ copyright = "© {year}"
 [[menu.main]]
   identifier = "code"
   name = "code"
-  title = "算法题解"
+  title = "Code"
   url = "/code"
 
