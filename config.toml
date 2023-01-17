@@ -67,5 +67,9 @@ copyright = "© {year}"
   title = "Blog"
   url = "/blog"
 
-
+[[menu.main]]
+  identifier = "code"
+  name = "code"
+  title = "算法题解"
+  url = "/code"
 
