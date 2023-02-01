@@ -1,3 +1,15 @@
+---
+title: "KRaft or Zookeeper"
+date: 2023-02-01T12:21:25+08:00
+slug: ""
+description: ""
+keywords: []
+draft: false
+tags: []
+math: false
+toc: true
+---
+
 > Kafka 在 2.8 的版本中新增了 KRaft 模式，正式宣布 Kafka 将逐步移除对 Zookeeper 的依赖。
 > Kafka 推出的 3.x 版本将弃用 Java8，将在 4.x 中正式移除
 > KRaft 模式目前[不建议应用于生产环境](https://github.com/apache/kafka/blob/trunk/config/kraft/README.md) ！
