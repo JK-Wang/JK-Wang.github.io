@@ -6,8 +6,6 @@ else
     MSG=$1
 fi
 
-echo "$MSG"
-
 git add --all
 git commit -m "$MSG"
 git push

@@ -73,3 +73,9 @@ copyright = "© {year}"
   title = "Code"
   url = "/code"
 
+[[menu.main]]
+  identifier = "kafka"
+  name = "Kafka"
+  title = "Kafka"
+  url = "/kafka"
+
