@@ -336,12 +336,18 @@ main {
 
 .article-content h2,
 .article-content h3,
-.article-content h4 {
-  margin: 2em 0 0.75em;
+.article-content h4,
+.article-content h5,
+.article-content h6 {
   color: var(--ink);
+  line-height: 1.33;
+}
+
+.article-content h2,
+.article-content h3 {
+  margin: 2em 0 0.75em;
   font-family: var(--serif);
   font-weight: 400;
-  line-height: 1.33;
 }
 
 .article-header h1,
@@ -354,11 +360,48 @@ main {
 }
 
 .article-content h2 {
+  padding-top: 18px;
+  border-top: 1px solid var(--parchment);
   font-size: 30px;
 }
 
 .article-content h3 {
   font-size: 24px;
+}
+
+.article-content h4 {
+  position: relative;
+  margin: 1.8em 0 0.7em 18px;
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.article-content h4::before {
+  content: "";
+  position: absolute;
+  top: 0.42em;
+  left: -18px;
+  width: 6px;
+  height: 1em;
+  border-radius: 3px;
+  background: var(--terra);
+}
+
+.article-content h5 {
+  margin: 1.5em 0 0.55em 18px;
+  color: var(--graphite);
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.article-content h6 {
+  margin: 1.25em 0 0.45em 18px;
+  color: var(--dust);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .article-content p,
@@ -457,6 +500,21 @@ main {
 .toc ul {
   margin: 0;
   padding-left: 16px;
+  list-style-position: outside;
+}
+
+.toc > nav > ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.toc li {
+  margin: 6px 0;
+}
+
+.toc li li {
+  padding-left: 8px;
+  border-left: 1px solid rgba(31, 30, 29, 0.12);
 }
 
 .toc a {
