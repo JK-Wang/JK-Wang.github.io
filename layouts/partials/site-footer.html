@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  <div>
+    <strong>{{ .Site.Title }}</strong>
+    <span>{{ replace .Site.Copyright "{year}" now.Year }}</span>
+  </div>
+  {{ with .Site.Params.github }}
+    <a href="{{ . }}" rel="me noopener" target="_blank">GitHub</a>
+  {{ end }}
+</footer>

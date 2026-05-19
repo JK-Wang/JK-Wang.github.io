@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  {{ partial "favicon.html" . }}
+  {{ $style := resources.Get "scss/claude.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+  {{ range .AlternativeOutputFormats }}
+    {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s">` .Rel .MediaType.Type .MediaType.FirstSuffix.Suffix .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
+</head>
+<body>
+  {{ partial "site-header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "site-footer.html" . }}
+</body>
+</html>

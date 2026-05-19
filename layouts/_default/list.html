@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+
+  <section class="page-head">
+    <p class="eyebrow">{{ .Kind }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </section>
+
+  <section class="article-list" aria-label="{{ .Title }}">
+    {{ range $pages }}
+      <article class="article-row">
+        <div>
+          <time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 140 }}</p>{{ end }}
+        </div>
+        {{ with .Params.tags }}
+          <div class="tag-list">
+            {{ range . }}<span>{{ . }}</span>{{ end }}
+          </div>
+        {{ end }}
+      </article>
+    {{ else }}
+      <p class="empty-state">暂无文章。</p>
+    {{ end }}
+  </section>
+{{ end }}

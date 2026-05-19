@@ -16,6 +16,8 @@ copyright = "© {year}"
 
 # Optional params
 [params]
+  description = "JK 的个人博客，记录技术、系统和日常思考。"
+
   # Follow the Hugo date/time format reference here:
   # https://gohugo.io/functions/format/#gos-layout-string
   dateFormat = "2006-01-02 03:04"
@@ -78,4 +80,3 @@ copyright = "© {year}"
   name = "Kafka"
   title = "Kafka"
   url = "/kafka"
-

@@ -1,0 +1,34 @@
+{{ define "main" }}
+  {{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
+  {{ $pages := where .Site.RegularPages "Draft" false }}
+  {{ $latest := first 6 ($pages.ByDate.Reverse) }}
+
+  <section class="home-hero">
+    <div class="hero-copy">
+      {{ with .Params.handle }}<p class="eyebrow">@{{ . }}</p>{{ end }}
+      <h1>{{ .Params.heading | default .Site.Title }}</h1>
+      <p>{{ .Params.subheading | default .Site.Params.description }}</p>
+      <div class="hero-actions">
+        <a class="button button-dark" href="/blog/">阅读文章</a>
+        <a class="button" href="{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="section-heading">
+      <p class="eyebrow">Recent writing</p>
+      <h2>最近更新</h2>
+    </div>
+    <div class="article-grid">
+      {{ range $latest }}
+        <article class="article-card">
+          <time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 110 }}</p>{{ end }}
+          {{ with .Section }}<span class="section-pill">{{ . }}</span>{{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

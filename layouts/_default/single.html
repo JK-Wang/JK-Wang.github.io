@@ -1,0 +1,33 @@
+{{ define "main" }}
+  {{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
+
+  <div class="article-shell">
+    <article class="article">
+      <header class="article-header">
+        {{ with .Section }}<p class="eyebrow">{{ . }}</p>{{ end }}
+        <h1 id="article-title">{{ .Title }}</h1>
+        {{ if .Date }}<time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>{{ end }}
+      </header>
+
+      <div class="article-content">
+        {{ .Content }}
+        {{ if or .Params.math .Site.Params.math }}
+          {{ partial "math.html" . }}
+        {{ end }}
+      </div>
+
+      {{ with .Params.tags }}
+        <footer class="article-tags">
+          {{ range . }}<span>{{ . }}</span>{{ end }}
+        </footer>
+      {{ end }}
+    </article>
+
+    {{ if .Params.toc }}
+      <aside class="toc">
+        <p><a href="#article-title">{{ .Title }}</a></p>
+        {{ .TableOfContents }}
+      </aside>
+    {{ end }}
+  </div>
+{{ end }}
