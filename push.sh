@@ -8,5 +8,5 @@ fi
 
 git add --all
 git commit -m "$MSG"
-git push
+git push ssh://git@ssh.github.com:443/JK-Wang/JK-Wang.github.io.git main
 
