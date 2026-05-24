@@ -10,11 +10,12 @@
 
   <section class="article-list" aria-label="{{ .Title }}">
     {{ range $pages }}
+      {{ $title := partial "page-title.html" . }}
       <article class="article-row">
         <div>
-          <time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>
-          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 140 }}</p>{{ end }}
+          {{ if not .Date.IsZero }}<time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>{{ end }}
+          <h2><a href="{{ .RelPermalink }}">{{ $title }}</a></h2>
+          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ partial "page-content.html" . | plainify | truncate 140 }}</p>{{ end }}
         </div>
         {{ with .Params.tags }}
           <div class="tag-list">

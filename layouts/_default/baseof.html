@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.LanguageCode }}"{{ if .IsHome }} class="home-page"{{ end }}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  {{ $pageTitle := partial "page-title.html" . }}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ $pageTitle }} | {{ .Site.Title }}{{ end }}</title>
   {{ partial "favicon.html" . }}
   {{ $style := resources.Get "scss/claude.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">

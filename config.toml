@@ -44,6 +44,9 @@ copyright = "© {year}"
   # Set to true to display page title in table of contents in blog posts.
   showPageTitleInTOC = true
 
+[frontmatter]
+  date = [":default", ":filename", ":fileModTime"]
+
 # This disables Hugo's default syntax highlighting in favor
 # of prismjs. If you wish to use Hugo's default syntax highlighting
 # over prismjs, remove this. You will also need to remove the prismjs
@@ -70,10 +73,10 @@ copyright = "© {year}"
   url = "/blog"
 
 [[menu.main]]
-  identifier = "code"
-  name = "算法题解"
-  title = "Code"
-  url = "/code"
+  identifier = "flink"
+  name = "Flink"
+  title = "Flink"
+  url = "/flink"
 
 [[menu.main]]
   identifier = "kafka"

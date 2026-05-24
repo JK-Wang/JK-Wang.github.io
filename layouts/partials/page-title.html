@@ -1,0 +1,5 @@
+{{- $title := .Title -}}
+{{- with findRE `(?m)^#\s+.+$` .RawContent 1 -}}
+  {{- $title = index . 0 | replaceRE `^#\s+` "" | replaceRE `\s+$` "" | plainify -}}
+{{- end -}}
+{{- return $title -}}

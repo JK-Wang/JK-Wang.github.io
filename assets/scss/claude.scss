@@ -32,6 +32,46 @@ body {
   line-height: 1.55;
 }
 
+html.home-page,
+html.home-page body {
+  height: 100%;
+  overflow: hidden;
+}
+
+html.home-page body {
+  display: flex;
+  flex-direction: column;
+}
+
+html.home-page main {
+  display: grid;
+  flex: 1;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 20px;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: 24px;
+}
+
+html.home-page .home-hero {
+  min-height: 0;
+  padding: 16px 0 0;
+}
+
+html.home-page .content-section {
+  overflow: hidden;
+  padding-top: 0;
+}
+
+html.home-page .section-heading {
+  margin-bottom: 12px;
+}
+
+html.home-page .article-card {
+  min-height: 0;
+  padding: 18px;
+}
+
 a {
   color: inherit;
   text-decoration-color: rgba(31, 30, 29, 0.28);
@@ -442,6 +482,21 @@ main {
   background: transparent;
 }
 
+.article-content .mermaid {
+  overflow-x: auto;
+  margin: 0 0 1.15em;
+  padding: 18px;
+  border: 1px solid var(--parchment);
+  border-radius: 9.6px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.article-content .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
 .article-image-link {
   display: block;
   max-width: 620px;
@@ -580,6 +635,24 @@ main {
   .home-hero {
     min-height: 0;
     padding-top: 28px;
+  }
+
+  html.home-page main {
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  html.home-page .home-hero {
+    padding-top: 12px;
+  }
+
+  html.home-page .section-heading {
+    margin-bottom: 12px;
+  }
+
+  html.home-page .article-card {
+    padding: 16px;
   }
 
   .hero-copy h1,

@@ -22,10 +22,11 @@
     </div>
     <div class="article-grid">
       {{ range $latest }}
+        {{ $title := partial "page-title.html" . }}
         <article class="article-card">
-          <time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 110 }}</p>{{ end }}
+          {{ if not .Date.IsZero }}<time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>{{ end }}
+          <h3><a href="{{ .RelPermalink }}">{{ $title }}</a></h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ partial "page-content.html" . | plainify | truncate 110 }}</p>{{ end }}
           {{ with .Section }}<span class="section-pill">{{ . }}</span>{{ end }}
         </article>
       {{ end }}

@@ -1,19 +1,21 @@
 {{ define "main" }}
   {{ $dateFormat := .Site.Params.dateFormat | default "2006-01-02" }}
+  {{ $title := partial "page-title.html" . }}
 
   <div class="article-shell">
     <article class="article">
       <header class="article-header">
         {{ with .Section }}<p class="eyebrow">{{ . }}</p>{{ end }}
-        <h1 id="article-title">{{ .Title }}</h1>
-        {{ if .Date }}<time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>{{ end }}
+        <h1 id="article-title">{{ $title }}</h1>
+        {{ if not .Date.IsZero }}<time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>{{ end }}
       </header>
 
       <div class="article-content">
-        {{ .Content }}
+        {{ partial "page-content.html" . }}
         {{ if or .Params.math .Site.Params.math }}
           {{ partial "math.html" . }}
         {{ end }}
+        {{ partial "mermaid.html" . }}
       </div>
 
       {{ with .Params.tags }}
@@ -25,7 +27,7 @@
 
     {{ if .Params.toc }}
       <aside class="toc">
-        <p><a href="#article-title">{{ .Title }}</a></p>
+        <p><a href="#article-title">{{ $title }}</a></p>
         {{ .TableOfContents }}
       </aside>
     {{ end }}
