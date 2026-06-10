@@ -1,4 +1,9 @@
 {{ $src := replaceRE `^(\./)?(\.\./)*static/` "/" .Destination }}
+{{ if and (not (strings.HasPrefix $src "/")) (not (findRE `^[a-zA-Z][a-zA-Z0-9+.-]*:` $src)) }}
+  {{ with .Page.File }}
+    {{ $src = printf "/%s%s" .Dir $src }}
+  {{ end }}
+{{ end }}
 <a class="article-image-link" href="{{ $src | safeURL }}" target="_blank" rel="noopener">
   <img src="{{ $src | safeURL }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}>
 </a>
