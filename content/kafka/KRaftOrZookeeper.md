@@ -84,10 +84,10 @@ Broker 可以将这些元数据存储在本地文件中，启动时只需要读�
 元数据可以直接通过 Kafka 获得，而不用再去绕一圈 Zk。另外由于元数据使用了事件日志进行管理，对集群的监控和统计分析也将更加准确且容易实现。
 
 由于 KRaft 模式 存储元数据时使用了和 Offset 相同的顺序读写方式，因此不用再考虑 Zk 随机读写时使用 SSD 对 HDD 的巨大优势。KRaft 模式下只用 HDD 同样可以实现极致的吞吐！
-![https://queue.acm.org/detail.cfm?id=1563874](/images/0a55db0c1d84c9fd5064b9f51cda5df5709d562e0b6ed623e1db3889e87c7c9e.png)  
+![https://queue.acm.org/detail.cfm?id=1563874](../../static/images/0a55db0c1d84c9fd5064b9f51cda5df5709d562e0b6ed623e1db3889e87c7c9e.png)  
 
 ## 架构对比
-![picture 1](/images/481d68124152b30bfe32391cc992fd3d496a79106a2438cb8bdb81af32684dd7.png)  
+![picture 1](../../static/images/481d68124152b30bfe32391cc992fd3d496a79106a2438cb8bdb81af32684dd7.png)  
 如左图所示，在 Kafka 2.7 及以前，使用 Zk 管理元数据的 Kafka 通过当选的 Controller(橙色节点) 与 Zk 交换元数据。此时 Controller 通过发送 UpdateMetadata 消息 将元数据推送给其他 Broker。
 
 右图展示的为 KRaft 模式 下 Kafka 的架构。三个独立的 Controller 进程替代了原来的 Zk 集群。Broker 节点本地存储一份元数据文件，并且从 Controller 中的 Leader(橙色) 节点拉取元数据的更新（模型类似于消费者从 Broker 消费数据）。

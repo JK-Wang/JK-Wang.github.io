@@ -1,3 +1,4 @@
-<a class="article-image-link" href="{{ .Destination | safeURL }}" target="_blank" rel="noopener">
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}>
+{{ $src := replaceRE `^(\./)?(\.\./)*static/` "/" .Destination }}
+<a class="article-image-link" href="{{ $src | safeURL }}" target="_blank" rel="noopener">
+  <img src="{{ $src | safeURL }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}>
 </a>

@@ -1,5 +1,5 @@
 ---
-heading: "Hi, I'm JK"
+heading: "Hi,"
 subheading: "Welcome to my Blog!"
 handle: "Transwarp"
 ---

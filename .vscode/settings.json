@@ -1,0 +1,15 @@
+{
+  "local-history.enabled": false,
+  "files.exclude": {
+    "**/.history": true
+  },
+  "files.watcherExclude": {
+    "**/.history/**": true
+  },
+  "markdown-image.base.uploadMethod": "Local",
+  "markdown-image.base.codeType": "Markdown",
+  "markdown-image.local.path": "/static/images",
+  "markdown-image.local.referencePath": "",
+  "markdown-image.base.fileNameFormat": "${folder}/${mdname}/${hash}",
+  "markdown-image.base.fileFormat": "png"
+}

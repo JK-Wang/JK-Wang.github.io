@@ -26,7 +26,7 @@
         <article class="article-card">
           {{ if not .Date.IsZero }}<time datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>{{ end }}
           <h3><a href="{{ .RelPermalink }}">{{ $title }}</a></h3>
-          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ partial "page-content.html" . | plainify | truncate 110 }}</p>{{ end }}
+          {{ with .Description }}<p>{{ . | truncate 42 }}</p>{{ else }}<p>{{ partial "page-content.html" . | plainify | truncate 42 }}</p>{{ end }}
           {{ with .Section }}<span class="section-pill">{{ . }}</span>{{ end }}
         </article>
       {{ end }}

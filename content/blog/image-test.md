@@ -14,5 +14,4 @@ Here is a sm.ms image
 ![remote](https://s2.loli.net/2022/09/05/l2Sw65ILjZythsK.png)
 
 follow is a local image
-![local](/images/image.png)
-
+![local](../../static/images/image.png)
